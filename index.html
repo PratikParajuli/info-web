@@ -5,7 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pratik Parajuli | Developer Portfolio</title>
     <link rel="icon" type="image/jfif" href="favicon.png.jfif">
+    
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <style>
+        /* 1. CUSTOM NEON SCROLLBAR */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0d1117; }
+        ::-webkit-scrollbar-thumb { 
+            background: #1abc9c; 
+            border-radius: 10px;
+            box-shadow: 0 0 10px #1abc9c;
+        }
+
         #particles-js {
             position: fixed;
             width: 100%;
@@ -19,66 +31,79 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
             color: #ffffff;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* Container for the typing effect */
+        /* Typing Name Container */
         .name-container {
-            min-height: 90px;
+            min-height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         #typing-name {
-            font-size: 70px;
-            font-weight: bold;
+            font-size: 75px;
+            font-weight: 800;
             color: #ffffff;
             text-transform: uppercase;
-            letter-spacing: 5px;
-            text-shadow: 0 0 15px rgba(26, 188, 156, 0.5);
+            letter-spacing: 8px;
+            text-shadow: 0 0 20px rgba(26, 188, 156, 0.6);
         }
 
-        /* Blinking Cursor */
         .cursor {
-            font-size: 70px;
+            font-size: 75px;
             color: #1abc9c;
             animation: blink 0.8s infinite;
-            margin-left: 5px;
         }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
+        /* 2. GLASS PANEL UPGRADES */
         .glass-panel {
-            background: rgba(26, 37, 47, 0.7); 
-            border: 1px solid rgba(26, 188, 156, 0.3);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-            transition: 0.3s;
+            background: rgba(26, 37, 47, 0.6); 
+            border: 1px solid rgba(26, 188, 156, 0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d; /* Prepares for 3D hover */
+        }
+
+        /* 3. 3D HOVER EFFECT */
+        .glass-panel:hover {
+            border-color: #1abc9c;
+            background: rgba(26, 37, 47, 0.8);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 50px rgba(26, 188, 156, 0.2);
         }
 
         .profile-img {
             object-fit: cover; 
             border-radius: 50%; 
-            border: 4px solid #1abc9c; 
-            box-shadow: 0 0 25px rgba(26, 188, 156, 0.6);
+            border: 5px solid #1abc9c; 
+            box-shadow: 0 0 35px rgba(26, 188, 156, 0.5);
+            transition: 0.5s;
+        }
+
+        .profile-img:hover {
+            transform: rotate(5deg) scale(1.05);
         }
 
         a {
             text-decoration: none;
             color: #1abc9c;
             font-weight: bold;
+            transition: 0.3s;
         }
 
+        a:hover { text-shadow: 0 0 10px #1abc9c; }
+
         @media (max-width: 768px) {
-            #typing-name, .cursor { font-size: 35px; }
-            .name-container { min-height: 50px; }
+            #typing-name, .cursor { font-size: 38px; }
             table { width: 95% !important; }
         }
     </style>
@@ -87,35 +112,39 @@
 
     <div id="particles-js"></div>
 
-    <table width="100%" cellpadding="40" cellspacing="0" border="0">
+    <table width="100%" cellpadding="60" cellspacing="0" border="0">
         <tr>
             <td align="center">
                 <div class="name-container">
                     <span id="typing-name"></span><span class="cursor">|</span>
                 </div>
-                <font color="#1abc9c" size="4" style="letter-spacing: 2px;">
-                    Creative Student & Developer
-                </font>
+                <div data-aos="fade-up" data-aos-delay="2000">
+                    <font color="#1abc9c" size="4" style="letter-spacing: 3px; font-weight: 300;">
+                        Creative Student & Developer
+                    </font>
+                </div>
             </td>
         </tr>
     </table>
 
-    <table width="80%" align="center" border="0">
+    <table width="80%" align="center" border="0" data-aos="zoom-in">
         <tr>
             <td align="center">
                 <img src="68d1a558-aca2-4f2d-8647-96bc48321f9d.jfif" class="profile-img" width="220" height="220">
                 <br><br>
-                <font size="2" color="#cccccc">🎵 Relaxed Lofi Beats</font><br>
-                <audio id="bgAudio" controls loop style="height: 30px; margin-top: 8px; opacity: 0.7;">
-                    <source src="bg-music.mp3" type="audio/mpeg">
-                </audio>
+                <div class="glass-panel" style="display: inline-block; padding: 10px 20px;">
+                    <font size="2" color="#cccccc">🎵 Currently Playing: Relaxed Lofi</font><br>
+                    <audio id="bgAudio" controls loop style="height: 30px; margin-top: 8px; opacity: 0.8;">
+                        <source src="bg-music.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
             </td>
         </tr>
     </table>
 
-    <br>
+    <br><br>
 
-    <table width="60%" align="center" cellpadding="15" border="0" class="glass-panel">
+    <table width="60%" align="center" cellpadding="15" border="0" class="glass-panel" data-aos="fade-up">
         <tr>
             <td align="center">
                 <font size="4">
@@ -127,11 +156,11 @@
 
     <br>
 
-    <table width="80%" align="center" cellpadding="25" border="0" class="glass-panel">
+    <table width="80%" align="center" cellpadding="30" border="0" class="glass-panel" data-aos="fade-right">
         <tr>
             <td>
-                <h2 style="color: #1abc9c; margin-top: 0;">My Vision & Passion</h2>
-                <p style="line-height: 1.8; font-size: 17px; color: #ecf0f1;">
+                <h2 style="color: #1abc9c; margin-top: 0; font-size: 28px;">My Vision & Passion</h2>
+                <p style="line-height: 1.9; font-size: 18px; color: #ecf0f1;">
                     I am a <b>Creative Student</b> with a laser-focus on my goals. My journey in technology 
                     started with a passion for gaming and logic, leading me to specialize in high-performance environments.
                 </p>
@@ -141,17 +170,17 @@
 
     <br>
 
-    <table width="80%" align="center" cellpadding="20" cellspacing="10">
+    <table width="80%" align="center" cellpadding="20" cellspacing="15">
         <tr>
-            <td width="50%" class="glass-panel" valign="top">
-                <h3 style="color: #1abc9c;">🎮 Technical Engineering</h3>
-                <p style="color: #bdc3c7; font-size: 15px;">
+            <td width="50%" class="glass-panel" valign="top" data-aos="fade-up" data-aos-delay="100">
+                <h3 style="color: #1abc9c; font-size: 22px;">🎮 Technical Engineering</h3>
+                <p style="color: #bdc3c7; font-size: 16px;">
                     Optimizing <b>Paper</b>, <b>Purpur</b>, and <b>Spigot</b> architectures to deliver lag-free, production-ready experiences for players.
                 </p>
             </td>
-            <td width="50%" class="glass-panel" valign="top">
-                <h3 style="color: #1abc9c;">💻 Digital Creation</h3>
-                <p style="color: #bdc3c7; font-size: 15px;">
+            <td width="50%" class="glass-panel" valign="top" data-aos="fade-up" data-aos-delay="300">
+                <h3 style="color: #1abc9c; font-size: 22px;">💻 Digital Creation</h3>
+                <p style="color: #bdc3c7; font-size: 16px;">
                     Bridging the gap between raw code and user experience through modern web design and custom logic scripting.
                 </p>
             </td>
@@ -160,55 +189,59 @@
 
     <br>
 
-    <table width="80%" align="center" cellpadding="25" border="0" class="glass-panel">
+    <table width="80%" align="center" cellpadding="30" border="0" class="glass-panel" data-aos="flip-down">
         <tr>
             <td align="center">
                 <h2 style="color: #1abc9c; margin-top: 0;">Let's Connect</h2>
-                <table border="0" cellpadding="8" style="font-size: 18px;">
+                <table border="0" cellpadding="10" style="font-size: 19px;">
                     <tr>
-                        <td align="right" style="color:#ffffff;">Instagram:</td>
+                        <td align="right" style="color:#ffffff; opacity: 0.7;">Instagram:</td>
                         <td><a href="https://www.instagram.com/nodoubtpratik" target="_blank">@nodoubtpratik</a></td>
                     </tr>
                     <tr>
-                        <td align="right" style="color:#ffffff;">Discord:</td>
+                        <td align="right" style="color:#ffffff; opacity: 0.7;">Discord:</td>
                         <td><a href="https://discord.com/users/1382730588506689677" target="_blank">pratik_parajuli</a></td>
                     </tr>
                     <tr>
-                        <td align="right" style="color:#ffffff;">Minecraft:</td>
-                        <td style="color: #1abc9c; font-weight: bold;">Pratik</td>
+                        <td align="right" style="color:#ffffff; opacity: 0.7;">Minecraft User:</td>
+                        <td style="color: #1abc9c; font-weight: bold; letter-spacing: 1px;">Pratik</td>
                     </tr>
                 </table>
             </td>
         </tr>
     </table>
 
-    <br>
+    <br><br>
 
-    <table width="100%" cellpadding="20">
+    <table width="100%" cellpadding="30">
         <tr>
             <td align="center">
-                <font size="2" color="#555555">
-                    &copy; 2026 Pratik Parajuli | Developed with Passion
+                <font size="2" color="#444444">
+                    &copy; 2026 Pratik Parajuli | Built with Precision in Nepal
                 </font>
             </td>
         </tr>
     </table>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
+        // Initialize Scroll Animations
+        AOS.init({ duration: 1000, once: true });
+
         // Particles Config
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 85, "density": { "enable": true, "value_area": 800 } },
+                "number": { "value": 90, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": "#1abc9c" },
                 "shape": { "type": "circle" },
                 "opacity": { "value": 0.5 },
                 "size": { "value": 3, "random": true },
                 "line_linked": { "enable": true, "distance": 150, "color": "#1abc9c", "opacity": 0.4, "width": 1 },
-                "move": { "enable": true, "speed": 2, "out_mode": "out" }
+                "move": { "enable": true, "speed": 1.5, "out_mode": "out" }
             },
             "interactivity": {
-                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } }
+                "events": { "onhover": { "enable": true, "mode": "grab" } }
             },
             "retina_detect": true
         });
@@ -222,15 +255,14 @@
             if (i < nameText.length) {
                 typingTarget.innerHTML += nameText.charAt(i);
                 i++;
-                setTimeout(typeWriter, 150); // Speed of typing (in milliseconds)
+                setTimeout(typeWriter, 140); 
             }
         }
 
-        // Run typing animation after a short delay
         window.onload = function() {
-            setTimeout(typeWriter, 500);
+            setTimeout(typeWriter, 600);
             var audio = document.getElementById("bgAudio");
-            audio.volume = 0.3; 
+            audio.volume = 0.2; 
         };
     </script>
 
