@@ -6,7 +6,6 @@
     <title>Pratik Parajuli | Developer Portfolio</title>
     <link rel="icon" type="image/jfif" href="favicon.png.jfif">
     <style>
-        /* Particles Background Layer */
         #particles-js {
             position: fixed;
             width: 100%;
@@ -25,25 +24,29 @@
             overflow-x: hidden;
         }
 
-        /* NEW Name Animation: Typing */
-        #typing-container {
+        /* Container for the typing effect */
+        .name-container {
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #typing-name {
             font-size: 70px;
             font-weight: bold;
             color: #ffffff;
             text-transform: uppercase;
             letter-spacing: 5px;
-            display: inline-block;
-            min-height: 80px; /* Pre-allocates space to avoid page jump */
+            text-shadow: 0 0 15px rgba(26, 188, 156, 0.5);
         }
 
-        /* Cursor blinking effect */
+        /* Blinking Cursor */
         .cursor {
-            display: inline-block;
-            width: 4px;
-            height: 70px;
-            background-color: #1abc9c;
-            margin-left: 5px;
+            font-size: 70px;
+            color: #1abc9c;
             animation: blink 0.8s infinite;
+            margin-left: 5px;
         }
 
         @keyframes blink {
@@ -51,7 +54,6 @@
             50% { opacity: 0; }
         }
 
-        /* (Rest of your existing glass panel styling is preserved below) */
         .glass-panel {
             background: rgba(26, 37, 47, 0.7); 
             border: 1px solid rgba(26, 188, 156, 0.3);
@@ -59,10 +61,6 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
             transition: 0.3s;
-        }
-
-        .glass-panel:hover {
-            border-color: #1abc9c;
         }
 
         .profile-img {
@@ -79,8 +77,8 @@
         }
 
         @media (max-width: 768px) {
-            #typing-container { font-size: 40px; min-height: 50px; }
-            .cursor { height: 40px; }
+            #typing-name, .cursor { font-size: 35px; }
+            .name-container { min-height: 50px; }
             table { width: 95% !important; }
         }
     </style>
@@ -92,7 +90,9 @@
     <table width="100%" cellpadding="40" cellspacing="0" border="0">
         <tr>
             <td align="center">
-                <div id="typing-container"></div><span class="cursor"></span><br>
+                <div class="name-container">
+                    <span id="typing-name"></span><span class="cursor">|</span>
+                </div>
                 <font color="#1abc9c" size="4" style="letter-spacing: 2px;">
                     Creative Student & Developer
                 </font>
@@ -166,15 +166,15 @@
                 <h2 style="color: #1abc9c; margin-top: 0;">Let's Connect</h2>
                 <table border="0" cellpadding="8" style="font-size: 18px;">
                     <tr>
-                        <td align="right" color="#ffffff">Instagram:</td>
+                        <td align="right" style="color:#ffffff;">Instagram:</td>
                         <td><a href="https://www.instagram.com/nodoubtpratik" target="_blank">@nodoubtpratik</a></td>
                     </tr>
                     <tr>
-                        <td align="right" color="#ffffff">Discord:</td>
+                        <td align="right" style="color:#ffffff;">Discord:</td>
                         <td><a href="https://discord.com/users/1382730588506689677" target="_blank">pratik_parajuli</a></td>
                     </tr>
                     <tr>
-                        <td align="right" color="#ffffff">Minecraft:</td>
+                        <td align="right" style="color:#ffffff;">Minecraft:</td>
                         <td style="color: #1abc9c; font-weight: bold;">Pratik</td>
                     </tr>
                 </table>
@@ -196,56 +196,9 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Particle Script (Your original config)
+        // Particles Config
         particlesJS("particles-js", {
             "particles": {
                 "number": { "value": 85, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": "#1abc9c" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": false },
-                "size": { "value": 3, "random": true },
-                "line_linked": { 
-                    "enable": true, 
-                    "distance": 150, 
-                    "color": "#1abc9c", 
-                    "opacity": 0.4, 
-                    "width": 1 
-                },
-                "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "out_mode": "out" }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } },
-                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } } }
-            },
-            "retina_detect": true
-        });
-
-        // Volume Control
-        var audio = document.getElementById("bgAudio");
-        audio.volume = 0.3; 
-
-        // NEW: JavaScript Typing Logic
-        const textToType = "PRATIK PARAJULI"; // The full text you want to display
-        const container = document.getElementById("typing-container");
-        let currentCharIndex = 0;
-
-        function type() {
-            if (currentCharIndex < textToType.length) {
-                container.innerHTML += textToType.charAt(currentCharIndex);
-                currentCharIndex++;
-                // Speed adjustment (120ms per letter)
-                setTimeout(type, 120); 
-            } else {
-                // Animation complete: Stop cursor blink (optional)
-                // document.querySelector('.cursor').style.animation = 'none';
-            }
-        }
-
-        // Start typing on page load
-        window.onload = type;
-
-    </script>
-
-</body>
-</html>
+                "shape": { "type
