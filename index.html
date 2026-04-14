@@ -1,246 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratik Parajuli | Developer Portfolio</title>
+    <link rel="icon" type="image/jfif" href="favicon.png.jfif">
+    <style>
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #0d1117; 
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
 
-<title>Pratik Parajuli | Developer</title>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
 
-<meta name="description" content="Pratik Parajuli - Minecraft Server Developer & Web Creator from Nepal">
+        /* Container for the typing effect */
+        .name-container {
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+        #typing-name {
+            font-size: 70px;
+            font-weight: bold;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 0 15px rgba(26, 188, 156, 0.5);
+        }
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        /* Blinking Cursor */
+        .cursor {
+            font-size: 70px;
+            color: #1abc9c;
+            animation: blink 0.8s infinite;
+            margin-left: 5px;
+        }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #0d1117;
-    color: white;
-    overflow-x: hidden;
-}
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
 
-/* PARTICLES */
-#particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
+        .glass-panel {
+            background: rgba(26, 37, 47, 0.7); 
+            border: 1px solid rgba(26, 188, 156, 0.3);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            transition: 0.3s;
+        }
 
-/* CONTAINER */
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-    padding: 40px 0;
-}
+        .profile-img {
+            object-fit: cover; 
+            border-radius: 50%; 
+            border: 4px solid #1abc9c; 
+            box-shadow: 0 0 25px rgba(26, 188, 156, 0.6);
+        }
 
-/* HEADER */
-.header {
-    text-align: center;
-    margin-top: 80px;
-}
+        a {
+            text-decoration: none;
+            color: #1abc9c;
+            font-weight: bold;
+        }
 
-#typing {
-    font-size: 55px;
-    font-weight: 700;
-    letter-spacing: 4px;
-}
-
-.cursor {
-    color: #1abc9c;
-    animation: blink 1s infinite;
-}
-
-@keyframes blink {
-    50% { opacity: 0; }
-}
-
-.subtitle {
-    color: #1abc9c;
-    margin-top: 10px;
-}
-
-/* PROFILE */
-.profile {
-    text-align: center;
-    margin: 40px 0;
-}
-
-.profile img {
-    width: 170px;
-    height: 170px;
-    border-radius: 50%;
-    border: 4px solid #1abc9c;
-    box-shadow: 0 0 30px rgba(26,188,156,0.6);
-    object-fit: cover;
-}
-
-/* CARD */
-.card {
-    background: rgba(26, 37, 47, 0.6);
-    border: 1px solid rgba(26,188,156,0.25);
-    border-radius: 15px;
-    padding: 25px;
-    margin-bottom: 20px;
-    backdrop-filter: blur(12px);
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 20px rgba(26,188,156,0.3);
-}
-
-/* GRID */
-.grid {
-    display: flex;
-    gap: 20px;
-}
-
-.grid .card {
-    flex: 1;
-}
-
-/* LINKS */
-a {
-    color: #1abc9c;
-    text-decoration: none;
-}
-
-a:hover {
-    text-shadow: 0 0 10px #1abc9c;
-}
-
-/* FOOTER */
-.footer {
-    text-align: center;
-    color: #777;
-    padding: 20px;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .grid {
-        flex-direction: column;
-    }
-
-    #typing {
-        font-size: 32px;
-    }
-}
-</style>
+        @media (max-width: 768px) {
+            #typing-name, .cursor { font-size: 35px; }
+            .name-container { min-height: 50px; }
+            table { width: 95% !important; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div id="particles-js"></div>
+    <div id="particles-js"></div>
 
-<div class="container">
+    <table width="100%" cellpadding="40" cellspacing="0" border="0">
+        <tr>
+            <td align="center">
+                <div class="name-container">
+                    <span id="typing-name"></span><span class="cursor">|</span>
+                </div>
+                <font color="#1abc9c" size="4" style="letter-spacing: 2px;">
+                    Creative Student & Developer
+                </font>
+            </td>
+        </tr>
+    </table>
 
-    <!-- HEADER -->
-    <div class="header">
-        <h1><span id="typing"></span><span class="cursor">|</span></h1>
-        <p class="subtitle">Creative Developer & Minecraft Engineer</p>
-    </div>
+    <table width="80%" align="center" border="0">
+        <tr>
+            <td align="center">
+                <img src="68d1a558-aca2-4f2d-8647-96bc48321f9d.jfif" class="profile-img" width="220" height="220">
+                <br><br>
+                <font size="2" color="#cccccc">🎵 Relaxed Lofi Beats</font><br>
+                <audio id="bgAudio" controls loop style="height: 30px; margin-top: 8px; opacity: 0.7;">
+                    <source src="bg-music.mp3" type="audio/mpeg">
+                </audio>
+            </td>
+        </tr>
+    </table>
 
-    <!-- PROFILE -->
-    <div class="profile">
-        <img src="profile.jpg" alt="Pratik Parajuli">
-    </div>
+    <br>
 
-    <!-- LOCATION -->
-    <div class="card" style="text-align:center;">
-        📍 Syangja, Nepal 🇳🇵
-    </div>
+    <table width="60%" align="center" cellpadding="15" border="0" class="glass-panel">
+        <tr>
+            <td align="center">
+                <font size="4">
+                    📍 <b>Syangja, Gandaki Province, Nepal</b> 🇳🇵
+                </font>
+            </td>
+        </tr>
+    </table>
 
-    <!-- ABOUT -->
-    <div class="card">
-        <h2 style="color:#1abc9c;">About Me</h2>
-        <p style="margin-top:10px; line-height:1.7;">
-            I am a creative developer focused on performance, clean design, and user experience.
-            I specialize in Minecraft server engineering and modern web development.
-        </p>
-    </div>
+    <br>
 
-    <!-- SKILLS -->
-    <div class="grid">
-        <div class="card">
-            <h3 style="color:#1abc9c;">🎮 Minecraft Systems</h3>
-            <p>Purpur, Paper, Spigot optimization & lag-free gameplay systems.</p>
-        </div>
+    <table width="80%" align="center" cellpadding="25" border="0" class="glass-panel">
+        <tr>
+            <td>
+                <h2 style="color: #1abc9c; margin-top: 0;">My Vision & Passion</h2>
+                <p style="line-height: 1.8; font-size: 17px; color: #ecf0f1;">
+                    I am a <b>Creative Student</b> with a laser-focus on my goals. My journey in technology 
+                    started with a passion for gaming and logic, leading me to specialize in high-performance environments.
+                </p>
+            </td>
+        </tr>
+    </table>
 
-        <div class="card">
-            <h3 style="color:#1abc9c;">💻 Web Development</h3>
-            <p>Modern UI design, responsive layouts, and interactive experiences.</p>
-        </div>
-    </div>
+    <br>
 
-    <!-- PROJECTS -->
-    <div class="card">
-        <h2 style="color:#1abc9c;">Projects</h2>
-        <ul style="margin-top:10px; line-height:1.8;">
-            <li>Minecraft Server Optimization</li>
-            <li>Custom Plugins</li>
-            <li>Portfolio Websites</li>
-        </ul>
-    </div>
+    <table width="80%" align="center" cellpadding="20" cellspacing="10">
+        <tr>
+            <td width="50%" class="glass-panel" valign="top">
+                <h3 style="color: #1abc9c;">🎮 Technical Engineering</h3>
+                <p style="color: #bdc3c7; font-size: 15px;">
+                    Optimizing <b>Paper</b>, <b>Purpur</b>, and <b>Spigot</b> architectures to deliver lag-free, production-ready experiences for players.
+                </p>
+            </td>
+            <td width="50%" class="glass-panel" valign="top">
+                <h3 style="color: #1abc9c;">💻 Digital Creation</h3>
+                <p style="color: #bdc3c7; font-size: 15px;">
+                    Bridging the gap between raw code and user experience through modern web design and custom logic scripting.
+                </p>
+            </td>
+        </tr>
+    </table>
 
-    <!-- CONTACT -->
-    <div class="card" style="text-align:center;">
-        <h2 style="color:#1abc9c;">Connect</h2>
-        <p style="margin-top:10px;">
-            <a href="https://www.instagram.com/nodoubtpratik" target="_blank" rel="noopener noreferrer">Instagram</a><br><br>
-            <a href="https://discord.com/users/1382730588506689677" target="_blank" rel="noopener noreferrer">Discord</a>
-        </p>
-    </div>
+    <br>
 
-</div>
+    <table width="80%" align="center" cellpadding="25" border="0" class="glass-panel">
+        <tr>
+            <td align="center">
+                <h2 style="color: #1abc9c; margin-top: 0;">Let's Connect</h2>
+                <table border="0" cellpadding="8" style="font-size: 18px;">
+                    <tr>
+                        <td align="right" style="color:#ffffff;">Instagram:</td>
+                        <td><a href="https://www.instagram.com/nodoubtpratik" target="_blank">@nodoubtpratik</a></td>
+                    </tr>
+                    <tr>
+                        <td align="right" style="color:#ffffff;">Discord:</td>
+                        <td><a href="https://discord.com/users/1382730588506689677" target="_blank">pratik_parajuli</a></td>
+                    </tr>
+                    <tr>
+                        <td align="right" style="color:#ffffff;">Minecraft:</td>
+                        <td style="color: #1abc9c; font-weight: bold;">Pratik</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 
-<div class="footer">
-    © 2026 Pratik Parajuli
-</div>
+    <br>
 
-<!-- PARTICLES -->
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <table width="100%" cellpadding="20">
+        <tr>
+            <td align="center">
+                <font size="2" color="#555555">
+                    &copy; 2026 Pratik Parajuli | Developed with Passion
+                </font>
+            </td>
+        </tr>
+    </table>
 
-<script>
-// PARTICLES
-particlesJS("particles-js", {
-    particles: {
-        number: { value: 80 },
-        color: { value: "#1abc9c" },
-        line_linked: { enable: true, color: "#1abc9c" },
-        move: { speed: 1.5 }
-    }
-});
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Particles Config
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 85, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#1abc9c" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5 },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#1abc9c", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 2, "out_mode": "out" }
+            },
+            "interactivity": {
+                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } }
+            },
+            "retina_detect": true
+        });
 
-// TYPING LOOP
-const text = "PRATIK PARAJULI";
-let i = 0;
-const el = document.getElementById("typing");
+        // Typing Animation Logic
+        const nameText = "PRATIK PARAJULI";
+        const typingTarget = document.getElementById("typing-name");
+        let i = 0;
 
-function type() {
-    if (i < text.length) {
-        el.innerHTML += text.charAt(i);
-        i++;
-        setTimeout(type, 100);
-    } else {
-        setTimeout(() => {
-            el.innerHTML = "";
-            i = 0;
-            type();
-        }, 2000);
-    }
-}
+        function typeWriter() {
+            if (i < nameText.length) {
+                typingTarget.innerHTML += nameText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 150); // Speed of typing (in milliseconds)
+            }
+        }
 
-type();
-</script>
+        // Run typing animation after a short delay
+        window.onload = function() {
+            setTimeout(typeWriter, 500);
+            var audio = document.getElementById("bgAudio");
+            audio.volume = 0.3; 
+        };
+    </script>
 
 </body>
 </html>
