@@ -25,28 +25,33 @@
             overflow-x: hidden;
         }
 
-        /* Name Animation: Glowing Pulse */
-        .animated-name {
+        /* NEW Name Animation: Typing */
+        #typing-container {
             font-size: 70px;
             font-weight: bold;
             color: #ffffff;
             text-transform: uppercase;
             letter-spacing: 5px;
-            animation: glow 2s ease-in-out infinite alternate;
             display: inline-block;
+            min-height: 80px; /* Pre-allocates space to avoid page jump */
         }
 
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 10px #fff, 0 0 20px #1abc9c, 0 0 30px #1abc9c;
-            }
-            to {
-                text-shadow: 0 0 20px #fff, 0 0 30px #3498db, 0 0 40px #3498db;
-                transform: scale(1.02);
-            }
+        /* Cursor blinking effect */
+        .cursor {
+            display: inline-block;
+            width: 4px;
+            height: 70px;
+            background-color: #1abc9c;
+            margin-left: 5px;
+            animation: blink 0.8s infinite;
         }
 
-        /* Glass Panel Styling */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* (Rest of your existing glass panel styling is preserved below) */
         .glass-panel {
             background: rgba(26, 37, 47, 0.7); 
             border: 1px solid rgba(26, 188, 156, 0.3);
@@ -60,7 +65,6 @@
             border-color: #1abc9c;
         }
 
-        /* Profile Image Styling */
         .profile-img {
             object-fit: cover; 
             border-radius: 50%; 
@@ -74,9 +78,9 @@
             font-weight: bold;
         }
 
-        /* Responsive Mobile Layout */
         @media (max-width: 768px) {
-            .animated-name { font-size: 40px; }
+            #typing-container { font-size: 40px; min-height: 50px; }
+            .cursor { height: 40px; }
             table { width: 95% !important; }
         }
     </style>
@@ -88,7 +92,7 @@
     <table width="100%" cellpadding="40" cellspacing="0" border="0">
         <tr>
             <td align="center">
-                <div class="animated-name">PRATIK PARAJULI</div><br>
+                <div id="typing-container"></div><span class="cursor"></span><br>
                 <font color="#1abc9c" size="4" style="letter-spacing: 2px;">
                     Creative Student & Developer
                 </font>
@@ -192,6 +196,7 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
+        // Particle Script (Your original config)
         particlesJS("particles-js", {
             "particles": {
                 "number": { "value": 85, "density": { "enable": true, "value_area": 800 } },
@@ -219,6 +224,27 @@
         // Volume Control
         var audio = document.getElementById("bgAudio");
         audio.volume = 0.3; 
+
+        // NEW: JavaScript Typing Logic
+        const textToType = "PRATIK PARAJULI"; // The full text you want to display
+        const container = document.getElementById("typing-container");
+        let currentCharIndex = 0;
+
+        function type() {
+            if (currentCharIndex < textToType.length) {
+                container.innerHTML += textToType.charAt(currentCharIndex);
+                currentCharIndex++;
+                // Speed adjustment (120ms per letter)
+                setTimeout(type, 120); 
+            } else {
+                // Animation complete: Stop cursor blink (optional)
+                // document.querySelector('.cursor').style.animation = 'none';
+            }
+        }
+
+        // Start typing on page load
+        window.onload = type;
+
     </script>
 
 </body>
