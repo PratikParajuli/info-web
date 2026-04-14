@@ -6,7 +6,7 @@
     <title>Pratik Parajuli | Developer Portfolio</title>
     <link rel="icon" type="image/jfif" href="favicon.png.jfif">
     <style>
-        /* Particles Background */
+        /* Particles Background Layer */
         #particles-js {
             position: fixed;
             width: 100%;
@@ -20,35 +20,64 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #ffffff;
             overflow-x: hidden;
         }
 
-        /* Modern Glass Panel Styling */
+        /* Name Animation: Glowing Pulse */
+        .animated-name {
+            font-size: 70px;
+            font-weight: bold;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            animation: glow 2s ease-in-out infinite alternate;
+            display: inline-block;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #1abc9c, 0 0 30px #1abc9c;
+            }
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px #3498db, 0 0 40px #3498db;
+                transform: scale(1.02);
+            }
+        }
+
+        /* Glass Panel Styling */
         .glass-panel {
             background: rgba(26, 37, 47, 0.7); 
             border: 1px solid rgba(26, 188, 156, 0.3);
             border-radius: 15px;
             backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            margin-bottom: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            transition: 0.3s;
+        }
+
+        .glass-panel:hover {
+            border-color: #1abc9c;
+        }
+
+        /* Profile Image Styling */
+        .profile-img {
+            object-fit: cover; 
+            border-radius: 50%; 
+            border: 4px solid #1abc9c; 
+            box-shadow: 0 0 25px rgba(26, 188, 156, 0.6);
         }
 
         a {
             text-decoration: none;
-            transition: 0.3s;
+            color: #1abc9c;
+            font-weight: bold;
         }
 
-        .social-link:hover {
-            text-shadow: 0 0 10px #1abc9c;
-            letter-spacing: 1px;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
+        /* Responsive Mobile Layout */
+        @media (max-width: 768px) {
+            .animated-name { font-size: 40px; }
             table { width: 95% !important; }
-            .header-text { font-size: 5vw !important; }
         }
     </style>
 </head>
@@ -56,14 +85,12 @@
 
     <div id="particles-js"></div>
 
-    <table width="100%" cellpadding="30" cellspacing="0" border="0">
+    <table width="100%" cellpadding="40" cellspacing="0" border="0">
         <tr>
             <td align="center">
-                <font color="#ffffff" size="7" class="header-text">
-                    <b>PRATIK PARAJULI</b>
-                </font><br>
-                <font color="#1abc9c" size="4">
-                    Creative Student & Minecraft Server Developer
+                <div class="animated-name">PRATIK PARAJULI</div><br>
+                <font color="#1abc9c" size="4" style="letter-spacing: 2px;">
+                    Creative Student & Developer
                 </font>
             </td>
         </tr>
@@ -72,20 +99,10 @@
     <table width="80%" align="center" border="0">
         <tr>
             <td align="center">
-                <img src="68d1a558-aca2-4f2d-8647-96bc48321f9d.jfif" 
-                     alt="Pratik Parajuli" 
-                     width="200" 
-                     height="200" 
-                     style="object-fit: cover; border-radius: 50%; border: 4px solid #1abc9c; box-shadow: 0 0 30px rgba(26, 188, 156, 0.4);">
-            </td>
-        </tr>
-    </table>
-
-    <table width="80%" align="center" cellpadding="10" border="0">
-        <tr>
-            <td align="center">
+                <img src="68d1a558-aca2-4f2d-8647-96bc48321f9d.jfif" class="profile-img" width="220" height="220">
+                <br><br>
                 <font size="2" color="#cccccc">🎵 Relaxed Lofi Beats</font><br>
-                <audio id="bgAudio" controls loop style="height: 30px; margin-top: 5px; opacity: 0.6;">
+                <audio id="bgAudio" controls loop style="height: 30px; margin-top: 8px; opacity: 0.7;">
                     <source src="bg-music.mp3" type="audio/mpeg">
                 </audio>
             </td>
@@ -104,63 +121,70 @@
         </tr>
     </table>
 
-    <table width="80%" align="center" cellpadding="20" border="0" class="glass-panel">
+    <br>
+
+    <table width="80%" align="center" cellpadding="25" border="0" class="glass-panel">
         <tr>
             <td>
-                <h2 style="color: #1abc9c; border-bottom: 2px solid rgba(26, 188, 156, 0.2); padding-bottom: 10px;">My Vision & Passion</h2>
-                <p style="line-height: 1.8; font-size: 16px; color: #ecf0f1;">
+                <h2 style="color: #1abc9c; margin-top: 0;">My Vision & Passion</h2>
+                <p style="line-height: 1.8; font-size: 17px; color: #ecf0f1;">
                     I am a <b>Creative Student</b> with a laser-focus on my goals. My journey in technology 
-                    started with a passion for gaming and logic, leading me to become a 
-                    <b>Minecraft Server Developer</b> specializing in high-performance environments.
+                    started with a passion for gaming and logic, leading me to specialize in high-performance environments.
                 </p>
             </td>
         </tr>
     </table>
 
+    <br>
+
     <table width="80%" align="center" cellpadding="20" cellspacing="10">
         <tr>
             <td width="50%" class="glass-panel" valign="top">
-                <h3 style="color: #1abc9c;">🎮 Minecraft Engineering</h3>
-                <font size="3" color="#bdc3c7">
-                    Optimizing <b>Purpur</b> and Spigot architectures to deliver lag-free, production-ready experiences for players.
-                </font>
+                <h3 style="color: #1abc9c;">🎮 Technical Engineering</h3>
+                <p style="color: #bdc3c7; font-size: 15px;">
+                    Optimizing <b>Paper</b>, <b>Purpur</b>, and <b>Spigot</b> architectures to deliver lag-free, production-ready experiences for players.
+                </p>
             </td>
             <td width="50%" class="glass-panel" valign="top">
                 <h3 style="color: #1abc9c;">💻 Digital Creation</h3>
-                <font size="3" color="#bdc3c7">
-                    Bridging the gap between raw code and user experience through web design and custom scripting.
-                </font>
+                <p style="color: #bdc3c7; font-size: 15px;">
+                    Bridging the gap between raw code and user experience through modern web design and custom logic scripting.
+                </p>
             </td>
         </tr>
     </table>
 
-    <table width="80%" align="center" cellpadding="20" border="0" class="glass-panel">
+    <br>
+
+    <table width="80%" align="center" cellpadding="25" border="0" class="glass-panel">
         <tr>
             <td align="center">
-                <h2 style="color: #1abc9c;">Let's Connect</h2>
-                <table border="0" cellpadding="10">
+                <h2 style="color: #1abc9c; margin-top: 0;">Let's Connect</h2>
+                <table border="0" cellpadding="8" style="font-size: 18px;">
                     <tr>
-                        <td><font color="#ffffff">Instagram:</font></td>
-                        <td><a href="https://www.instagram.com/nodoubtpratik" target="_blank" class="social-link"><font color="#1abc9c">@nodoubtpratik</font></a></td>
+                        <td align="right" color="#ffffff">Instagram:</td>
+                        <td><a href="https://www.instagram.com/nodoubtpratik" target="_blank">@nodoubtpratik</a></td>
                     </tr>
                     <tr>
-                        <td><font color="#ffffff">Discord:</font></td>
-                        <td>
-                            <a href="https://discord.com/users/1382730588506689677" target="_blank" class="social-link">
-                                <font color="#1abc9c"><b>pratik_parajuli</b></font>
-                            </a>
-                        </td>
+                        <td align="right" color="#ffffff">Discord:</td>
+                        <td><a href="https://discord.com/users/1382730588506689677" target="_blank">pratik_parajuli</a></td>
+                    </tr>
+                    <tr>
+                        <td align="right" color="#ffffff">Minecraft:</td>
+                        <td style="color: #1abc9c; font-weight: bold;">Pratik</td>
                     </tr>
                 </table>
             </td>
         </tr>
     </table>
 
+    <br>
+
     <table width="100%" cellpadding="20">
         <tr>
             <td align="center">
-                <font size="2" color="#666666">
-                    &copy; 2026 Pratik Parajuli | Built with Precision in Nepal
+                <font size="2" color="#555555">
+                    &copy; 2026 Pratik Parajuli | Developed with Passion
                 </font>
             </td>
         </tr>
@@ -170,30 +194,32 @@
     <script>
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+                "number": { "value": 85, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": "#1abc9c" },
                 "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": true },
+                "opacity": { "value": 0.5, "random": false },
                 "size": { "value": 3, "random": true },
                 "line_linked": { 
                     "enable": true, 
                     "distance": 150, 
                     "color": "#1abc9c", 
-                    "opacity": 0.3, 
+                    "opacity": 0.4, 
                     "width": 1 
                 },
-                "move": { "enable": true, "speed": 1.5, "direction": "none", "random": true, "out_mode": "out" }
+                "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "out_mode": "out" }
             },
             "interactivity": {
                 "detect_on": "canvas",
                 "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } },
-                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.8 } } }
+                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } } }
             },
             "retina_detect": true
         });
 
+        // Volume Control
         var audio = document.getElementById("bgAudio");
-        audio.volume = 0.2; 
+        audio.volume = 0.3; 
     </script>
+
 </body>
 </html>
