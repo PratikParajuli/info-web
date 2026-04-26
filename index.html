@@ -3,83 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pratik Parajuli | Developer Portfolio</title>
-    <link rel="icon" type="image/jfif" href="favicon.png.jfif">
+    <title>Pratik Parajuli | Portfolio</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    
     <style>
+        :root {
+            --primary: #7ef2f2;
+            --bg-dark: #020b12;
+            --glass: rgba(10, 25, 41, 0.85);
+            --border: rgba(126, 242, 242, 0.2);
+            --nepal-red: #dc143c;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: #d1d1d1;
+            margin: 0;
+            padding-top: 60px;
+            overflow-x: hidden;
+        }
+
+        /* --- BACKGROUND PARTICLES & NAME --- */
         #particles-js {
             position: fixed;
             width: 100%;
             height: 100%;
-            background-color: #0d1117; 
+            z-index: -1;
             top: 0;
             left: 0;
+        }
+
+        #particles-js::after {
+            content: "PRATIK";
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 14vw;
+            font-weight: 900;
+            color: rgba(126, 242, 242, 0.03); 
             z-index: -1;
+            letter-spacing: 25px;
+            pointer-events: none;
         }
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #ffffff;
-            overflow-x: hidden;
+        /* --- REVEAL ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px) scale(0.95);
+            transition: all 0.8s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+            visibility: hidden;
         }
 
-        /* Container for the typing effect */
-        .name-container {
-            min-height: 90px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            visibility: visible;
         }
 
-        #typing-name {
-            font-size: 70px;
-            font-weight: bold;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            text-shadow: 0 0 15px rgba(26, 188, 156, 0.5);
-        }
-
-        /* Blinking Cursor */
-        .cursor {
-            font-size: 70px;
-            color: #1abc9c;
-            animation: blink 0.8s infinite;
-            margin-left: 5px;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        .glass-panel {
-            background: rgba(26, 37, 47, 0.7); 
-            border: 1px solid rgba(26, 188, 156, 0.3);
-            border-radius: 15px;
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(2, 11, 18, 0.95);
             backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        nav .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
             transition: 0.3s;
         }
 
+        nav a:hover { color: var(--primary); }
+
+        .main-container { width: 95%; max-width: 850px; margin: 0 auto; }
+        section { margin-bottom: 80px; scroll-margin-top: 100px; }
+
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        /* Hero */
+        .hero { text-align: center; margin-bottom: 60px; }
+        .hero h1 { font-size: 3.5rem; margin: 0; color: #fff; font-weight: 800; min-height: 1.2em; }
+        .cursor { border-left: 4px solid var(--primary); margin-left: 5px; animation: blink 0.7s infinite; }
+        @keyframes blink { 50% { border-color: transparent; } }
+
         .profile-img {
-            object-fit: cover; 
-            border-radius: 50%; 
-            border: 4px solid #1abc9c; 
-            box-shadow: 0 0 25px rgba(26, 188, 156, 0.6);
+            width: 140px; height: 140px; border-radius: 50%;
+            border: 3px solid var(--primary); margin: 25px 0;
+            box-shadow: 0 0 25px rgba(126, 242, 242, 0.3);
         }
 
-        a {
+        /* Location Banner */
+        .location-banner {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 10px;
+            background: rgba(126, 242, 242, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #fff;
+        }
+
+        h2.section-title { color: var(--primary); font-size: 1.1rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 2px; display: flex; align-items: center; gap: 10px; }
+
+        /* Experience Button */
+        .exp-card { border-left: 3px solid var(--primary); padding-left: 20px; margin-top: 15px; }
+        .exp-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 15px;
+            padding: 14px 28px;
+            background: rgba(126, 242, 242, 0.05);
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            color: var(--primary);
             text-decoration: none;
-            color: #1abc9c;
-            font-weight: bold;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: 0.3s ease;
+        }
+        .exp-link:hover {
+            background: var(--primary);
+            color: var(--bg-dark);
+            box-shadow: 0 0 20px var(--primary);
+            transform: translateY(-3px);
         }
 
-        @media (max-width: 768px) {
-            #typing-name, .cursor { font-size: 35px; }
-            .name-container { min-height: 50px; }
-            table { width: 95% !important; }
+        /* Skills Progress */
+        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; text-align: center; }
+        .circle-wrap { width: 90px; height: 90px; margin: 0 auto 15px; position: relative; }
+        .circle-svg { width: 90px; height: 90px; transform: rotate(-90deg); }
+        .circle-bg { fill: none; stroke: rgba(255, 255, 255, 0.05); stroke-width: 8; }
+        .circle-progress { fill: none; stroke: var(--primary); stroke-width: 8; stroke-linecap: round; }
+        .percentage { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: 800; font-size: 1rem; color: #fff; }
+
+        /* Content Grids */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 25px; }
+        .about-card { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 10px; border: 1px solid var(--border); }
+        .about-card h3 { font-size: 1rem; color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+
+        .hobby-display { padding: 20px; text-align: center; background: rgba(126, 242, 242, 0.05); border-radius: 10px; font-size: 1.1rem; }
+        .highlight { color: var(--primary); font-weight: 600; text-shadow: 0 0 8px rgba(126, 242, 242, 0.4); }
+
+        /* Contact Grid */
+        .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .contact-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 20px; border-radius: 10px; text-align: center; text-decoration: none; transition: 0.3s; }
+        .contact-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .contact-card i { font-size: 1.5rem; color: var(--primary); margin-bottom: 10px; display: block; }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(to top, rgba(126, 242, 242, 0.05), transparent);
+            border-top: 1px solid var(--border);
+            margin-top: 50px;
+        }
+        .footer-content { font-size: 1.1rem; font-weight: 600; letter-spacing: 1px; color: #fff; display: inline-block; }
+        .footer-name { color: var(--primary); text-shadow: 0 0 10px rgba(126, 242, 242, 0.3); }
+        .heart-icon { color: var(--nepal-red); display: inline-block; animation: pulse 1.5s ease infinite; margin: 0 5px; }
+        .nepal-text { background: linear-gradient(45deg, #003893, #dc143c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; padding-left: 5px; }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 650px) {
+            .hero h1 { font-size: 2.2rem; }
+            .about-grid, .skills-grid, .contact-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -87,145 +208,91 @@
 
     <div id="particles-js"></div>
 
-    <table width="100%" cellpadding="40" cellspacing="0" border="0">
-        <tr>
-            <td align="center">
-                <div class="name-container">
-                    <span id="typing-name"></span><span class="cursor">|</span>
+    <nav>
+        <div class="nav-container">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#hobbies">Hobbies</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="main-container">
+
+        <section id="home" class="hero reveal">
+            <h1 id="typewriter"></h1><span class="cursor"></span>
+            <div><img src="logo.png" alt="Pratik Parajuli" class="profile-img"></div>
+            <p style="font-size: 0.75rem; letter-spacing: 4px; color: #7ef2f2;">CREATIVE STUDENT & DEVELOPER</p>
+        </section>
+
+        <div class="location-banner reveal">
+            <i class="fa-solid fa-location-dot" style="color: var(--nepal-red);"></i> Syangja, Gandaki Province, Nepal <sup>NP</sup>
+        </div>
+
+        <section id="about" class="reveal">
+            <div class="glass-panel">
+                <h2 class="section-title">My Vision & Passion</h2>
+                <p>I am a <strong>Creative Student</strong> with a laser-focus on my goals. My journey in technology started with a passion for gaming and logic, leading me to specialize in high-performance environments.</p>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <h3>🎮 Technical Engineering</h3>
+                        <p style="font-size: 0.85rem;">Optimizing <strong>Paper, Purpur,</strong> and <strong>Spigot</strong> architectures to deliver lag-free, production-ready experiences for players.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>💻 Digital Creation</h3>
+                        <p style="font-size: 0.85rem;">Bridging the gap between raw code and user experience through modern web design and custom logic scripting.</p>
+                    </div>
                 </div>
-                <font color="#1abc9c" size="4" style="letter-spacing: 2px;">
-                    Creative Student & Developer
-                </font>
-            </td>
-        </tr>
-    </table>
+            </div>
+        </section>
 
-    <table width="80%" align="center" border="0">
-        <tr>
-            <td align="center">
-                <img src="68d1a558-aca2-4f2d-8647-96bc48321f9d.jfif" class="profile-img" width="220" height="220">
-                <br><br>
-                <font size="2" color="#cccccc">🎵 Relaxed Lofi Beats</font><br>
-                <audio id="bgAudio" controls loop style="height: 30px; margin-top: 8px; opacity: 0.7;">
-                    <source src="bg-music.mp3" type="audio/mpeg">
-                </audio>
-            </td>
-        </tr>
-    </table>
+        <section id="experience" class="reveal">
+            <div class="glass-panel">
+                <h2 class="section-title">Experience</h2>
+                <div class="exp-card">
+                    <h3 style="color: #fff; font-size: 1.1rem; margin: 0;">Moderator @ MCNP Network</h3>
+                    <p style="font-size: 0.9rem; color: #a0acba; margin-top: 8px;">Technical moderation for Nepal's largest Minecraft community.</p>
+                    <a href="https://discord.gg/5dCKnpEEcb" target="_blank" class="exp-link">
+                        <i class="fa-brands fa-discord"></i> Join MCNP Network
+                    </a>
+                </div>
+            </div>
+        </section>
 
-    <br>
+        <section id="skills" class="reveal">
+            <div class="glass-panel">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="circle-wrap">
+                            <svg class="circle-svg"><circle class="circle-bg" cx="45" cy="45" r="40"></circle><circle class="circle-progress" cx="45" cy="45" r="40" style="stroke-dasharray: 251; stroke-dashoffset: calc(251 - (251 * 89) / 100);"></circle></svg>
+                            <div class="percentage">89%</div>
+                        </div>
+                        <span>Minecraft Server Dev</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="circle-wrap">
+                            <svg class="circle-svg"><circle class="circle-bg" cx="45" cy="45" r="40"></circle><circle class="circle-progress" cx="45" cy="45" r="40" style="stroke-dasharray: 251; stroke-dashoffset: calc(251 - (251 * 33) / 100);"></circle></svg>
+                            <div class="percentage">33%</div>
+                        </div>
+                        <span>Web Development</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <table width="60%" align="center" cellpadding="15" border="0" class="glass-panel">
-        <tr>
-            <td align="center">
-                <font size="4">
-                    📍 <b>Syangja, Gandaki Province, Nepal</b> 🇳🇵
-                </font>
-            </td>
-        </tr>
-    </table>
+        <section id="hobbies" class="reveal">
+            <div class="glass-panel">
+                <h2 class="section-title"><i class="fa-solid fa-gamepad"></i> Hobbies</h2>
+                <div class="hobby-display">
+                    Playing <span class="highlight">adventure technology games</span> with <span class="highlight">passion</span>.
+                </div>
+            </div>
+        </section>
 
-    <br>
-
-    <table width="80%" align="center" cellpadding="25" border="0" class="glass-panel">
-        <tr>
-            <td>
-                <h2 style="color: #1abc9c; margin-top: 0;">My Vision & Passion</h2>
-                <p style="line-height: 1.8; font-size: 17px; color: #ecf0f1;">
-                    I am a <b>Creative Student</b> with a laser-focus on my goals. My journey in technology 
-                    started with a passion for gaming and logic, leading me to specialize in high-performance environments.
-                </p>
-            </td>
-        </tr>
-    </table>
-
-    <br>
-
-    <table width="80%" align="center" cellpadding="20" cellspacing="10">
-        <tr>
-            <td width="50%" class="glass-panel" valign="top">
-                <h3 style="color: #1abc9c;">🎮 Technical Engineering</h3>
-                <p style="color: #bdc3c7; font-size: 15px;">
-                    Optimizing <b>Paper</b>, <b>Purpur</b>, and <b>Spigot</b> architectures to deliver lag-free, production-ready experiences for players.
-                </p>
-            </td>
-            <td width="50%" class="glass-panel" valign="top">
-                <h3 style="color: #1abc9c;">💻 Digital Creation</h3>
-                <p style="color: #bdc3c7; font-size: 15px;">
-                    Bridging the gap between raw code and user experience through modern web design and custom logic scripting.
-                </p>
-            </td>
-        </tr>
-    </table>
-
-    <br>
-
-    <table width="80%" align="center" cellpadding="25" border="0" class="glass-panel">
-        <tr>
-            <td align="center">
-                <h2 style="color: #1abc9c; margin-top: 0;">Let's Connect</h2>
-                <table border="0" cellpadding="8" style="font-size: 18px;">
-                    <tr>
-                        <td align="right" style="color:#ffffff;">Instagram:</td>
-                        <td><a href="https://www.instagram.com/nodoubtpratik" target="_blank">@nodoubtpratik</a></td>
-                    </tr>
-                    <tr>
-                        <td align="right" style="color:#ffffff;">Discord:</td>
-                        <td><a href="https://discord.com/users/1382730588506689677" target="_blank">pratik_parajuli</a></td>
-                    </tr>
-                    <tr>
-                        <td align="right" style="color:#ffffff;">Minecraft Username:</td>
-                        <td style="color: #1abc9c; font-weight: bold;">Pratik</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-
-    <br>
-
-    <table width="100%" cellpadding="20">
-        <tr>
-            <td align="center">
-                <font size="2" color="#555555">
-                    &copy; 2026 Pratik Parajuli | Developed with Passion
-                </font>
-            </td>
-        </tr>
-    </table>
-
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        // Particles Config
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 85, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#1abc9c" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5 },
-                "size": { "value": 3, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#1abc9c", "opacity": 0.4, "width": 1 },
-                "move": { "enable": true, "speed": 2, "out_mode": "out" }
-            },
-            "interactivity": {
-                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } }
-            },
-            "retina_detect": true
-        });
-
-        // Typing Animation Logic
-        const nameText = "PRATIK PARAJULI";
-        const typingTarget = document.getElementById("typing-name");
-        let i = 0;
-
-        function typeWriter() {
-            if (i < nameText.length) {
-                typingTarget.innerHTML += nameText.charAt(i);
-                i++;
-                setTimeout(typeWriter, 150); 
-            }
-        }
-<<section id="contact" class="reveal">
+        <section id="contact" class="reveal">
             <div class="glass-panel">
                 <h2 class="section-title">Let's Connect</h2>
                 <div class="contact-grid">
@@ -249,3 +316,59 @@
                 </div>
             </div>
         </section>
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            © 2026 <span class="footer-name">Pratik Parajuli</span> | Developed with <span class="heart-icon"><i class="fa-solid fa-heart"></i></span> Passion<br>
+            Proudly From <span class="nepal-text">Nepal</span>
+        </div>
+    </footer>
+
+    <script>
+        // TYPEWRITER
+        const text = "Pratik Parajuli";
+        let charIdx = 0;
+        function typeWriter() {
+            if (charIdx < text.length) {
+                document.getElementById("typewriter").innerHTML += text.charAt(charIdx);
+                charIdx++;
+                setTimeout(typeWriter, 150);
+            }
+        }
+        window.onload = typeWriter;
+
+        // SCROLL REVEAL
+        function handleScroll() {
+            const reveals = document.querySelectorAll(".reveal");
+            const windowHeight = window.innerHeight;
+            reveals.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < windowHeight - 100 && rect.bottom > 100) {
+                    el.classList.add("active");
+                } else {
+                    el.classList.remove("active");
+                }
+            });
+        }
+        window.addEventListener("scroll", handleScroll);
+        handleScroll();
+
+        // PARTICLES
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#7ef2f2" },
+                "opacity": { "value": 0.3 },
+                "size": { "value": 2 },
+                "line_linked": { "enable": true, "distance": 150, "color": "#7ef2f2", "opacity": 0.2 },
+                "move": { "enable": true, "speed": 1.2 }
+            },
+            "interactivity": {
+                "events": { "onhover": { "enable": true, "mode": "grab" } }
+            }
+        });
+    </script>
+</body>
+</html>
